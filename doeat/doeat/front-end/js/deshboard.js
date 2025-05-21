@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         div.innerHTML = `
           <img src="../img/${carpeta}/${nombreImagen}" alt="${p.producto}">
-          <p>${p.producto}<br><strong>${p.cantidad_predicha} estimados</strong></p>
+          <p>${p.producto}<br><strong>$${Math.round(p.cantidad_predicha)} estimados</strong></p>
         `;
         contenedorMes.appendChild(div);
       });
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const top7 = ordenado.slice(0, 7);
 
       const etiquetas = top7.map(p => p.producto);
-      const cantidades = top7.map(p => p.cantidad_predicha);
+      const cantidades = top7.map(p => Math.round(p.cantidad_predicha));
 
       new Chart(ctx, {
         type: 'pie', 
